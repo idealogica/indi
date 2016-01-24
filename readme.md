@@ -6,9 +6,9 @@
 [2. Installation](#2-installation)<br />
 [3. Container values](#3-container-values)<br />
 [4. Lazy initialization of container values](#4-lazy-initialization-of-container-values)<br />
-[4.1. Defining shared values](#4-1-defining-shared-values)<br />
-[4.2. Defining factory values](#4-2-defining-factory-values)<br />
-[4.3. Accessing shared and factory values](#4-3-accessing-shared-and-factory-values)<br />
+[4.1. Defining shared values](#41-defining-shared-values)<br />
+[4.2. Defining factory values](#42-defining-factory-values)<br />
+[4.3. Accessing shared and factory values](#43-accessing-shared-and-factory-values)<br />
 [5. Dependency injection](#5-dependency-injection)<br />
 [6. Value providers](#6-value-providers)<br />
 [7. Delegates](#7-delegates)<br />
@@ -334,7 +334,7 @@ InDI can interact with any container-interop compliant dependency injection cont
 You can pass foreign container instance as a constructor argument to share values form it
 in two modes:
 
-<li>Master mode. Allows to have all values form foreign container available in InDI:</li>
+► Master mode. Allows to have all values form foreign container available in InDI:
 
 ```php
 if($foreignContainer instanceof Interop\Container\ContainerInterface)
@@ -345,7 +345,7 @@ if($foreignContainer instanceof Interop\Container\ContainerInterface)
 }
 ```
 
-<li>Lookup mode. Allows to have all values form foreign container available as a dependency lookups:</li>
+► Lookup mode. Allows to have all values form foreign container available as a dependency lookups:
 
 ```php
 if($foreignContainer instanceof Interop\Container\ContainerInterface)
@@ -366,20 +366,20 @@ More details about delegate lookup feature you can find in
 
 It's possible integrate InDI into your project in a few different ways:
 
-<li>Most common and simple - just create InDI container instance and then use it:</li>
+► Most common and simple - just create InDI container instance and then use it:
 
 ```php
 $container = Idealogica\InDI\Container();
 ```
 
-<li>Inherit you main application class form `Idealogica\InDI\Container`:</li>
+► Inherit you main application class form `Idealogica\InDI\Container`:
 
 ```php
 class MyApp extends Idealogica\InDI\Container {}
 ```
 
-<li>In case if your main application class already inherited you can use traits to
-introduce InDI functionality:</li>
+► In case if your main application class already inherited you can use traits to
+introduce InDI functionality:
 
 ```php
 class MyApp implements Iterator, ArrayAccess, Countable, Interop\Container\ContainerInterface
