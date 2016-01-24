@@ -1,0 +1,48 @@
+{
+    "name": "idealogica/indi",
+    "description": "InDI - more simple than pimple; most simplest [In]Dependecy Injection container.",
+    "keywords": ["ioc", "di", "container", "dependency", "injection", "injector", "locator", "service"],
+    "homepage": "https://github.com/idealogica/indi",
+    "license": "MIT",
+    "authors":
+    [
+        {
+            "name": "Konstatin Nikiforov",
+            "email": "ok@idealogica.ru",
+            "homepage": "http://www.idealogica.ru"
+        }
+    ],
+    "require":
+    {
+        "container-interop/container-interop": "~1.1"
+    },
+    "require-dev":
+    {
+        "phpunit/phpunit": "~5.1.3",
+        "illuminate/support": "~5.2.6"
+    },
+    "autoload":
+    {
+        "psr-4":
+        {
+            "Idealogica\\InDI\\": "src/"
+        }
+    },
+    "autoload-dev":
+    {
+        "classmap":
+        [
+            "tests/dummies/DefinitionProvider.php",
+            "tests/dummies/BadDefinitionProvider.php",
+            "tests/dummies/ValueProvider.php"
+        ],
+        "files":
+        [
+            "tests/dummies.php"
+        ]
+    },
+    "config":
+    {
+        "preferred-install": "dist"
+    }
+}
