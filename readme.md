@@ -96,7 +96,7 @@ $container->remove('value3');
 
 ## 4. Lazy initialization of container values
 
-Let't assume that you have database connection service. Of course, you can add it to
+Let's assume that you have database connection service. Of course, you can add it to
 container directly:
 
 ```php
@@ -196,8 +196,8 @@ passed to it at runtime.
 #### 4.3. Accessing shared and factory values
 
 Your previously defined shared or factory values can be accessed in two different ways:
-
-<li>Directly form container:</li>
+<ul>
+<li>Directly form container:
 
 ```php
 // shared value
@@ -210,8 +210,9 @@ $view1 = $container->view('template', ['parm' => 'value']); // returns View inst
 $view2 = $container->view('template', ['parm' => 'value']); // returns another View instance
 var_export($view1 === view2); // false
 ```
+</li>
 
-<li>Using raw *value lazy definition* closure. Obtain it just like an any other regular value: </li>
+<li>Using raw *value lazy definition* closure. Obtain it just like an any other regular value:
 
 ```php
 $getDb = $container->db;
@@ -230,11 +231,12 @@ $view2 = $getView('template', ['parm' => 'value']); // returns another View inst
 var_export($view1 === $view2); // false
 ```
 It can be helpful when:
-<li>You need for "laziest" initialization. For example you can pass this closure to your
-middleware and get instance of DBAL\Connection right just before using it</li>
-<li>You want to get variable amount of instances of factory values in one place. For example you want to
-have multiple view instances in the same middleware</li>
-
+• You need for "laziest" initialization. For example you can pass this closure to your
+middleware and get instance of DBAL\Connection right just before using it
+• You want to get variable amount of instances of factory values in one place. For example you want to
+have multiple view instances in the same middleware
+</li>
+</ul>
 ## 5. Dependency injection
 
 Let's define all initial settings for our database connection and view classes:
@@ -254,7 +256,7 @@ $container->db = new DBAL\Connection($container->dbDriver, $container->dbUser, $
 ```
 
 In case of lazy initialization you can inject any value from container in your *value lazy definition*.
-When *value lazy definition* is closure $this can be used to access container:
+When *value lazy definition* is closure `$this` can be used to access container:
 
 ```php
 $container->addShared('dbDriver', function (): DBAL\MySql
@@ -282,7 +284,10 @@ $container->addShared('db', function (Idealogica\InDI\Container $container): DBA
 $db = $container->db();
 
 // factory values
-$container->addFactory('view', function (string $template, Idealogica\InDI\Container $container, array $parms = []): View
+$container->addFactory('view', function (
+    string $template,
+    Idealogica\InDI\Container $container,
+    array $parms = []): View
 {
     return (new View($container->templatesPath))->setTemplate(template)->setParms(parms);
 });
