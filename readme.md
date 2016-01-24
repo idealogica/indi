@@ -340,7 +340,7 @@ in two modes:
 if($foreignContainer instanceof Interop\Container\ContainerInterface)
 {
     var_export($foreignContainer->has('dbDriver')); // true
-    $container = InDI\Container($foreignContainer);
+    $container = new InDI\Container($foreignContainer);
     var_export($container->has('dbDriver')); // true
 }
 ```
@@ -351,7 +351,7 @@ if($foreignContainer instanceof Interop\Container\ContainerInterface)
 if($foreignContainer instanceof Interop\Container\ContainerInterface)
 {
     var_export($foreignContainer->has('dbDriver')); // true
-    $container = Idealogica\InDI\Container($foreignContainer, Idealogica\InDI\DELEGATE_LOOKUP);
+    $container = new Idealogica\InDI\Container($foreignContainer, Idealogica\InDI\DELEGATE_LOOKUP);
     var_export($container->has('dbDriver')); // false
     $container->addShared('db', function ()
     {
@@ -369,7 +369,7 @@ It's possible integrate InDI into your project in a few different ways:
 ► Most common and simple - just create InDI container instance and then use it:
 
 ```php
-$container = Idealogica\InDI\Container();
+$container = new Idealogica\InDI\Container();
 ```
 
 ► Inherit you main application class form `Idealogica\InDI\Container`:
