@@ -231,7 +231,7 @@ var_export($view1 === $view2); // false
 ```
 It can be helpful when:
 * You need for "laziest" initialization. For example you can pass this closure to your
-middleware and get instance of DBAL\Connection right just before using it
+middleware and get instance of `DBAL\Connection` right just before using it
 * You want to get variable amount of instances of factory values in one place. For example you want to
 have multiple view instances in the same middleware
 
