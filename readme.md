@@ -210,6 +210,7 @@ $view1 = $container->view('template', ['parm' => 'value']); // returns View inst
 $view2 = $container->view('template', ['parm' => 'value']); // returns another View instance
 var_export($view1 === view2); // false
 ```
+
 </li>
 
 <li>Using raw *value lazy definition* closure. Obtain it just like an any other regular value:
@@ -237,6 +238,7 @@ middleware and get instance of DBAL\Connection right just before using it
 have multiple view instances in the same middleware
 </li>
 </ul>
+
 ## 5. Dependency injection
 
 Let's define all initial settings for our database connection and view classes:
