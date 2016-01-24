@@ -197,7 +197,7 @@ passed to it at runtime.
 
 Your previously defined shared or factory values can be accessed in two different ways:
 
-• Directly form container:
+► Directly form container:
 
 ```php
 // shared value
@@ -211,7 +211,7 @@ $view2 = $container->view('template', ['parm' => 'value']); // returns another V
 var_export($view1 === view2); // false
 ```
 
-• Using raw *value lazy definition* closure. Obtain it just like an any other regular value:
+► Using raw *value lazy definition* closure. Obtain it just like an any other regular value:
 
 ```php
 $getDb = $container->db;
