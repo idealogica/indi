@@ -18,7 +18,7 @@
 
 ## 1. What is InDI?
 
-InDI is most simplest [in]dependency injection container for PHP7, compatible with
+InDI is the simplest [in]dependency injection container for PHP7, compatible with
 [container-interop](https://github.com/container-interop/container-interop). It offers
 intuitive way to manage PHP application dependencies mostly using native language constructs.
 The main idea is to provide painless way for programmers of any level of experience to use
@@ -29,10 +29,10 @@ be readable and clear.
 
 ##### What is dependency injection?
 
-It's a pattern that allows you to transparently manage relations between your services
-and settings. Using it you can build your application from a bunch of reusable decoupled
+It's a pattern that allows you to manage relations between your services
+and settings transparently. Using it you can build your application from a bunch of reusable decoupled
 components, distribute your initial settings over your application, write clear code that
-can be easily refactored, tested and maitained.
+can be easily refactored, tested and maintained.
 There is a good [explanatory article](http://fabien.potencier.org/what-is-dependency-injection.html)
 from Fabien Potencier.
 
@@ -40,7 +40,7 @@ from Fabien Potencier.
 
 InDI is inspired by [Pimple](http://pimple.sensiolabs.org/) - another great dependency
 injection container for PHP. Their main principles are the same, so it won't take much of
-your time to start using InDI if you are experienced Pimple user.
+your time to start using InDI if you are an experienced Pimple user.
 
 ## 2. Installation
 
@@ -51,7 +51,7 @@ InDI requires PHP7 and `container-interop/container-interop` package.
 
 ## 3. Container values
 
-InDI it's a simple key-value storage and you can add any kind of data to it.
+InDI is a simple key-value storage and you can add any kind of data to it.
 Any PHP variable can be stored inside InDI:
 
 ```php
@@ -105,7 +105,7 @@ $container->db = new DBAL\Connection($dbDriver, 'user', 'pass');
 ```
 In this case database connection initializes instantly when you call `new` operator.
 If you want on-demand connection to your database you should use value lazy definition.
-*Value lazy definition* it's an PHP callable that simply returns initialized value:
+*Value lazy definition* is a PHP callable that simply returns initialized value:
 
 ```php
 // closure
@@ -174,7 +174,7 @@ $container->addShared('number', function (): int
 ```
 #### 4.2. Defining factory values
 
-Use `addFactory` method along with *value lazy definition* to obtain an new value instance
+Use `addFactory` method along with *value lazy definition* to obtain a new value instance
 every time you access it:
 
 ```php
@@ -291,6 +291,7 @@ $container->addFactory('view', function (
 });
 $view = $container->view('template', ['parm' => 'value']);
 ```
+Make sure that container argument is typehinted.
 
 ## 6. Value providers
 
@@ -334,7 +335,7 @@ InDI can interact with any container-interop compliant dependency injection cont
 You can pass foreign container instance as a constructor argument to share values form it
 in two modes:
 
-► Master mode. Allows to have all values form foreign container available in InDI:
+► Master mode. Allows to have all values from foreign container available in InDI:
 
 ```php
 if($foreignContainer instanceof Interop\Container\ContainerInterface)
@@ -345,7 +346,7 @@ if($foreignContainer instanceof Interop\Container\ContainerInterface)
 }
 ```
 
-► Lookup mode. Allows to have all values form foreign container available as a dependency lookups:
+► Lookup mode. Allows to have all values from foreign container available as a dependency lookups:
 
 ```php
 if($foreignContainer instanceof Interop\Container\ContainerInterface)
@@ -364,7 +365,7 @@ More details about delegate lookup feature you can find in
 
 ## 8. Integration
 
-It's possible integrate InDI into your project in a few different ways:
+It's possible to integrate InDI into your project in few different ways:
 
 ► Most common and simple - just create InDI container instance and then use it:
 
@@ -372,13 +373,13 @@ It's possible integrate InDI into your project in a few different ways:
 $container = new Idealogica\InDI\Container();
 ```
 
-► Inherit you main application class form `Idealogica\InDI\Container`:
+► Inherit you main application class from `Idealogica\InDI\Container`:
 
 ```php
 class MyApp extends Idealogica\InDI\Container {}
 ```
 
-► In case if your main application class already inherited you can use traits to
+► In case when your main application class is already inherited you can use traits to
 introduce InDI functionality:
 
 ```php

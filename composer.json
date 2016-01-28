@@ -1,7 +1,7 @@
 {
     "name": "idealogica/indi",
-    "description": "InDI is most simplest [in]dependency injection container for PHP7, compatible with container-interop.",
-    "keywords": ["ioc", "di", "container", "dependency", "injection", "injector", "locator", "service", "php7"],
+    "description": "The simplest [in]dependency injection container for PHP7, compatible with container-interop.",
+    "keywords": ["ioc", "di", "container", "dependency", "injection", "injector", "locator", "service", "php7", "container-interop"],
     "homepage": "https://github.com/idealogica/indi",
     "license": "MIT",
     "authors":
