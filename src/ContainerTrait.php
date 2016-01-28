@@ -98,7 +98,7 @@ trait ContainerTrait
         if($this->delegateMaster && $this->delegateMaster->has($id))
         {
             throw new Exception\Container(
-                'Value "%s" assignment would not take effect since master '.
+                'Value "%s" assignment will not take effect since master '.
                 'container have value with the same id.', $id);
         }
         $this->values[$id] = $value;
