@@ -20,7 +20,7 @@
     "require-dev":
     {
         "phpunit/phpunit": "~5.1.3",
-        "illuminate/support": "~5.2.6"
+        "idealogica/debug": "~1.0.0"
     },
     "autoload":
     {
