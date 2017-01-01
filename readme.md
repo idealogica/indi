@@ -1,6 +1,6 @@
 # InDI - [In]Dependency Injector
 
-<br /><img alt="InDI" title="InDI" src="http://www.idealogica.ru/image/indi.png"><br /><br />
+<br /><img alt="InDI" title="InDI" src="http://konstantin.idealogica.me/image/indi.png"><br /><br />
 
 [1. What is InDI?](#1-what-is-indi)<br />
 [2. Installation](#2-installation)<br />
