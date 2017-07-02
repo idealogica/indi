@@ -7,6 +7,7 @@ trait PropertyAccessTrait
      * Gets value.
      *
      * @param string $id
+     *
      * @return mixed
      */
     public function __get(string $id)
@@ -29,6 +30,7 @@ trait PropertyAccessTrait
      * Checks if value exists.
      *
      * @param string $id
+     *
      * @return bool
      */
     public function __isset(string $id)

@@ -6,10 +6,10 @@ use Interop\Container\Exception;
 class Container extends \Exception implements Exception\ContainerException
 {
     /**
-     * Constructor.
+     * Container constructor.
      *
      * @param string $message
-     * @param string $insertions,...
+     * @param string[] ...$insertions
      */
     public function __construct(string $message = "", string ...$insertions)
     {

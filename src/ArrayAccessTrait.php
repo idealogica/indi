@@ -40,7 +40,7 @@ trait ArrayAccessTrait
      */
     public function valid()
     {
-        return $this->key($this->values) !== null;
+        return $this->key() !== null;
     }
 
     /**
