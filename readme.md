@@ -13,8 +13,7 @@
 [6. Value providers](#6-value-providers)<br />
 [7. Delegates](#7-delegates)<br />
 [8. Integration](#8-integration)<br />
-[9. Contributing](#9-contributing)<br />
-[10. License](#10-license)
+[9. License](#10-license)
 
 ## 1. What is InDI?
 
@@ -391,36 +390,6 @@ class MyApp implements Iterator, ArrayAccess, Countable, Interop\Container\Conta
 }
 ```
 
-## 9. Contributing
-
-Pull requests should include PHPUnit tests.
-
-Project follows PSR-2 with these violations:
-
-1. ALL kinds of braces must be placed in following way:
-
-    * If open brace placed on a new line then close brace placed on a new line too:
-
-     ```php
-     $var =
-     [
-         1 => 'new',
-         2 => 'line',
-         3 => 'placement'
-     ];
-     ```
-
-    * If open brace stays on the same line then close brace placed on the last line of the block:
-
-     ```php
-     $var = [
-         1 => 'same',
-         2 => 'line',
-         3 => 'placement'];
-     ```
-
-2. There must not be spaces after the control structure keyword
-
-## 10. License
+## 9. License
 
 InDI is licensed under a [MIT License](https://opensource.org/licenses/MIT).
