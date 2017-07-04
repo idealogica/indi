@@ -1,6 +1,6 @@
 # InDI - [In]Dependency Injector
 
-<br /><img alt="InDI" title="InDI" src="http://konstantin.idealogica.me/image/indi.png"><br /><br />
+<br /><img alt="InDI" title="InDI" src="http://storage9.static.itmages.com/i/17/0704/h_1499205205_3962698_14415773fa.png"><br /><br />
 
 [1. What is InDI?](#1-what-is-indi)<br />
 [2. Installation](#2-installation)<br />
@@ -13,7 +13,7 @@
 [6. Value providers](#6-value-providers)<br />
 [7. Delegates](#7-delegates)<br />
 [8. Integration](#8-integration)<br />
-[9. License](#10-license)
+[9. License](#9-license)
 
 ## 1. What is InDI?
 
