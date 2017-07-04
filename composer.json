@@ -1,7 +1,8 @@
 {
     "name": "idealogica/indi",
-    "description": "The simplest [in]dependency injection container for PHP7, compatible with container-interop.",
-    "keywords": ["ioc", "di", "container", "dependency", "injection", "injector", "locator", "service", "php7", "container-interop"],
+    "description": "The simplest [in]dependency injection container for PHP7, compatible with PSR-11.",
+    "keywords": ["ioc", "di", "container", "dependency", "injection", "injector", "locator", "service", "php7", "container-interop", "psr-11"],
+    "type": "library",
     "homepage": "https://github.com/idealogica/indi",
     "license": "MIT",
     "authors":
@@ -41,9 +42,5 @@
         [
             "tests/dummies.php"
         ]
-    },
-    "config":
-    {
-        "preferred-install": "dist"
     }
 }

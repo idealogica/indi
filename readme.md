@@ -19,7 +19,7 @@
 ## 1. What is InDI?
 
 InDI is the simplest [in]dependency injection container for PHP7, compatible with
-[container-interop](https://github.com/container-interop/container-interop). It offers
+[PSR-11](https://github.com/container-interop/container-interop). It offers
 intuitive way to manage PHP application dependencies mostly using native language constructs.
 The main idea is to provide painless way for programmers of any level of experience to use
 dependency injection in their projects. InDI is fast, easy to use, powerful and standards
@@ -331,7 +331,7 @@ $container->register(new DbProvider(), 'localhost', 'database', 'user', 'pass');
 
 ## 7. Delegates
 
-InDI can interact with any container-interop compliant dependency injection container.
+InDI can interact with any PSR-11 compliant dependency injection container.
 You can pass foreign container instance as a constructor argument to share values form it
 in two modes:
 
@@ -361,7 +361,7 @@ if($foreignContainer instanceof Interop\Container\ContainerInterface)
 }
 ```
 More details about delegate lookup feature you can find in
-[container-interop documentation](https://github.com/container-interop/container-interop/blob/master/docs/Delegate-lookup.md).
+[PSR-11 documentation](https://github.com/container-interop/container-interop/blob/master/docs/Delegate-lookup.md).
 
 ## 8. Integration
 
