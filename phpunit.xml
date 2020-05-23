@@ -13,8 +13,7 @@
     stopOnIncomplete="false"
     stopOnSkipped="false"
     stopOnRisky="false"
-    verbose="false"
-    syntaxCheck="false">
+    verbose="false">
     <testsuites>
         <testsuite name="unit">
             <directory>tests</directory>

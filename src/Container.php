@@ -1,9 +1,9 @@
 <?php
 namespace Idealogica\InDI;
 
-use Interop\Container as InteropContainer;
+use Psr\Container as PsrContainer;
 
-class Container implements \Iterator, \ArrayAccess, \Countable, InteropContainer\ContainerInterface
+class Container implements \Iterator, \ArrayAccess, \Countable, PsrContainer\ContainerInterface
 {
     use ContainerTrait;
     use ArrayAccessTrait;

@@ -1,9 +1,10 @@
 <?php
 namespace Idealogica\InDI;
 
-use Interop\Container as InteropContainer;
+use Psr\Container as PsrContainer;
 
 const DELEGATE_LOOKUP = true;
+
 const DELEGATE_MASTER = false;
 
 trait ContainerTrait
@@ -11,16 +12,16 @@ trait ContainerTrait
     /**
      * Master delegate.
      *
-     * @var \Interop\Container\ContainerInterface
+     * @var PsrContainer\ContainerInterface
      */
-    private $delegateMaster = null;
+    private $delegateMaster;
 
     /**
      * Lookup delegate.
      *
-     * @var \Interop\Container\ContainerInterface
+     * @var PsrContainer\ContainerInterface
      */
-    private $delegateLookup = null;
+    private $delegateLookup;
 
     /**
      * Container values.
@@ -32,11 +33,11 @@ trait ContainerTrait
     /**
      * Constructor.
      *
-     * @param \Interop\Container\ContainerInterface $delegate
+     * @param PsrContainer\ContainerInterface $delegate
      * @param bool $delegateRole
      */
     public function __construct(
-        InteropContainer\ContainerInterface $delegate = null,
+        PsrContainer\ContainerInterface $delegate = null,
         bool $delegateRole = DELEGATE_MASTER
     ) {
         if ($delegateRole === DELEGATE_MASTER) {
@@ -65,7 +66,7 @@ trait ContainerTrait
      * @param string $id
      *
      * @return mixed
-     * @throws Exception\NotFound
+     * @throws Exception\NotFoundException
      */
     public function get($id)
     {
@@ -74,7 +75,7 @@ trait ContainerTrait
         } elseif (isset($this->values[$id])) {
             $value = $this->values[$id];
         } else {
-            throw new Exception\NotFound('Value with id "%s" was not found.', $id);
+            throw new Exception\NotFoundException('Value with id "%s" was not found.', $id);
         }
         return $value;
     }
@@ -86,12 +87,12 @@ trait ContainerTrait
      * @param mixed $value
      *
      * @return $this
-     * @throws Exception\Container
+     * @throws Exception\ContainerException
      */
     public function add(string $id, $value)
     {
         if ($this->delegateMaster && $this->delegateMaster->has($id)) {
-            throw new Exception\Container(
+            throw new Exception\ContainerException(
                 'Value "%s" assignment will not take effect since master ' .
                 'container have value with the same id.', $id
             );
@@ -107,6 +108,7 @@ trait ContainerTrait
      * @param callable $definition
      *
      * @return $this
+     * @throws Exception\ContainerException
      */
     public function addFactory(string $id, callable $definition)
     {
@@ -125,6 +127,7 @@ trait ContainerTrait
      * @param callable $definition
      *
      * @return $this
+     * @throws Exception\ContainerException
      */
     public function addShared(string $id, callable $definition)
     {
@@ -160,6 +163,7 @@ trait ContainerTrait
      * @param mixed $arguments,...
      *
      * @return $this
+     * @throws \ReflectionException
      */
     public function register(callable $provider, ...$arguments)
     {
@@ -174,12 +178,13 @@ trait ContainerTrait
      * @param mixed $arguments,...
      *
      * @return mixed
+     * @throws \ReflectionException
      */
     protected function invoke(callable $callable, ...$arguments)
     {
         $arguments = array_values($arguments);
         $container = $this->delegateLookup ?: $this;
-        $containerInterface = 'Interop\\Container\\ContainerInterface';
+        $containerInterface = 'Psr\\Container\\ContainerInterface';
         $refParameterExceptionHandler = function (
             \ReflectionException $e,
             \Reflector $refMethod
@@ -197,7 +202,7 @@ trait ContainerTrait
             }
             $presentation .= '() defined in ' . $refMethod->getFileName() .
                 '(' . $refMethod->getStartLine() . '-' . $refMethod->getEndLine() . ')';
-            throw new Exception\Container(
+            throw new Exception\ContainerException(
                 'Argument of %s is not properly declared. %s',
                 $presentation,
                 $e->getMessage()
@@ -241,7 +246,7 @@ trait ContainerTrait
      * @param array $arguments
      *
      * @return mixed
-     * @throws Exception\Container
+     * @throws Exception\ContainerException
      */
     public function __call(string $methodName, array $arguments)
     {
@@ -249,7 +254,7 @@ trait ContainerTrait
         if (is_callable($value)) {
             return $value(...$arguments);
         }
-        throw new Exception\Container(
+        throw new Exception\ContainerException(
             'Value with id "%s" is not a callable (%s) and can not be executed.',
             $methodName,
             gettype($value)

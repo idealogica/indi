@@ -1,15 +1,15 @@
 <?php
 namespace Idealogica\InDI\Exception;
 
-use Interop\Container\Exception;
+use Psr\Container\ContainerExceptionInterface;
 
-class Container extends \Exception implements Exception\ContainerException
+class ContainerException extends \Exception implements ContainerExceptionInterface
 {
     /**
      * Container constructor.
      *
      * @param string $message
-     * @param string[] ...$insertions
+     * @param string ...$insertions
      */
     public function __construct(string $message = "", string ...$insertions)
     {
