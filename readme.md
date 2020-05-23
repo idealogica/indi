@@ -18,7 +18,7 @@
 ## 1. What is InDI?
 
 InDI is the simplest [in]dependency injection container for PHP7, compatible with
-[PSR-11](https://github.com/container-interop/container-interop). It offers
+[PSR-11](https://github.com/php-fig/container). It offers
 intuitive way to manage PHP application dependencies mostly using native language constructs.
 The main idea is to provide painless way for programmers of any level of experience to use
 dependency injection in their projects. InDI is fast, easy to use, powerful and standards
@@ -46,7 +46,7 @@ your time to start using InDI if you are an experienced Pimple user.
 ```
 composer require idealogica/indi:~1.0.0
 ```
-InDI requires PHP7 and `container-interop/container-interop` package.
+InDI requires PHP7 and `psr/container` package.
 
 ## 3. Container values
 
@@ -360,7 +360,7 @@ if($foreignContainer instanceof Interop\Container\ContainerInterface)
 }
 ```
 More details about delegate lookup feature you can find in
-[PSR-11 documentation](https://github.com/container-interop/container-interop/blob/master/docs/Delegate-lookup.md).
+[PSR-11 documentation](https://www.php-fig.org/psr/psr-11/meta/).
 
 ## 8. Integration
 
